@@ -1,0 +1,33 @@
+version: "3.5"
+
+services:
+  mysql:
+    image: vsamov/mysql-5.1.73
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: cfgov
+      MYSQL_DATABASE: cfgov
+      MYSQL_USER: cfgov
+      MYSQL_PASSWORD: cfgov
+    volumes:
+        - ./:/host:ro
+    stdin_open: true
+    tty: true
+  postgres:
+    image: postgres:9.6 
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: cfgov
+      POSTGRES_USER: cfgov
+      POSTGRES_PASSWORD: cfgov
+    volumes:
+      - ./:/host
+  pgloader:
+    image: dimitri/pgloader:ccl.latest
+    volumes:
+      - ./:/host
+    depends_on:
+      - mysql
+      - postgres
