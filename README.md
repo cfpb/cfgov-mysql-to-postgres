@@ -4,6 +4,7 @@ If using docker-machine, create a Docker machine with suitable memory:
 
 ```sh
 $ docker-machine create default --driver virtualbox --virtualbox-cpu-count "2" --virtualbox-memory "8192"
+$ eval $(docker-machine env)
 ```
 
 Start the containers in background mode:
