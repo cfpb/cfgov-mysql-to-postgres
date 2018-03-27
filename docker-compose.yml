@@ -1,4 +1,4 @@
-version: "3.5"
+version: "2.0"
 
 services:
   mysql:
@@ -12,8 +12,6 @@ services:
       MYSQL_PASSWORD: cfgov
     volumes:
         - ./:/host:ro
-    stdin_open: true
-    tty: true
   postgres:
     image: postgres:9.6 
     ports:
@@ -27,7 +25,7 @@ services:
   pgloader:
     image: dimitri/pgloader:ccl.latest
     volumes:
-      - ./:/host
+      - ./:/host:ro
     depends_on:
       - mysql
       - postgres
