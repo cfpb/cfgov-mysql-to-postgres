@@ -11,7 +11,7 @@ services:
       MYSQL_USER: cfgov
       MYSQL_PASSWORD: cfgov
     volumes:
-        - ./:/host:ro
+      - ./:/host:ro
   postgres:
     image: postgres:9.6 
     ports:

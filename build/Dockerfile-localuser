@@ -1,0 +1,10 @@
+FROM vsamov/mysql-5.1.73:latest
+
+ADD set-mysql-uid-gid.sh /
+ADD localuser-entrypoint.sh /
+
+ENTRYPOINT ["/localuser-entrypoint.sh"]
+
+EXPOSE 3306
+
+CMD ["mysqld", "--datadir=/var/lib/mysql", "--user=mysql"]

@@ -27,3 +27,15 @@ $ createdb cfgov
 $ createuser cfgov
 $ gunzip < postgres.sql.gz | psql cfgov
 ```
+
+### Using a local MySQL volume
+
+It is possible to configure the MySQL container to use an external volume for its data storage by defining the `MYSQL_VOLUME` environment variable and using an alternate Compose file:
+
+```sh
+$ MYSQL_VOLUME=./data/ docker-compose -f docker-compose.mysql-volume.yml up --build -d
+```
+
+This configuration will store all MySQL data files to whatever local path you've specified in the `MYSQL_VOLUME` environment variable, in this example `./data/`.
+
+This approach does a little bit of trickery to make sure that local volume files are created as the right user/group; see the custom `build/Dockerfile-localuser` and related files for more details. This approach doesn't seem to work well with Docker Machine on Mac due to the intermediate layer between the local system and the Docker container.

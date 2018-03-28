@@ -1,0 +1,11 @@
+version: "2.0"
+
+services:
+  mysql:
+    image: cfpb/mysql-5.1.73
+    build:
+      context: ./build
+      dockerfile: Dockerfile-localuser
+    volumes:
+      - ./:/host
+      - ${MYSQL_VOLUME}:/var/lib/mysql
