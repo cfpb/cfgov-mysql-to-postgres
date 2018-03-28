@@ -4,7 +4,7 @@
 set -e
 
 # Run load script in MySQL container. This loads MySQL container's database.
-# Requires a local file named "production_complete.sql".
+# Requires a local file named "mysql.sql.gz".
 docker-compose exec -T mysql /host/mysql_load.sh
 
 # Use pgloader to copy MySQL data over to Postgres.

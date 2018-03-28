@@ -13,7 +13,7 @@ Start the containers in background mode:
 $ docker-compose up -d
 ```
 
-Run the conversion shell script. This loads a local `mysql.sql` dump into MySQL, runs conversion into Postgres, and dumps it back out as `postgres.sql`:
+Run the conversion shell script. This loads a local `mysql.sql.gz` dump into MySQL, runs conversion into Postgres, and dumps it back out as `postgres.sql.gz`:
 
 ```sh
 $ ./convert.sh
@@ -25,5 +25,5 @@ To load the dumped data back into a local Postgres:
 $ dropdb cfgov
 $ createdb cfgov
 $ createuser cfgov
-$ psql cfgov -f postgres.sql
+$ gunzip < postgres.sql.gz | psql cfgov
 ```
