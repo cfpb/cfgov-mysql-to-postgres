@@ -1,4 +1,10 @@
-This process converts a local `mysql.sql` MySQL 5.1 dump file into an equivalent `postgres.sql` PostgreSQL 9.6 dump file.
+# cfgov-mysql-to-postgres
+
+Migrating the [consumerfinance.gov](https://www.consumerfinance.gov) website from MySQL to PostgreSQL.
+
+## How to use this repository
+
+This repository consists of a [Docker Compose](https://docs.docker.com/compose/) setup that runs the [pgloader](https://pgloader.io/) tool to convert data from a MySQL 5.1 dump file to PostgreSQL 9.6 dump file.
 
 If using docker-machine, create a Docker machine with suitable memory:
 
@@ -39,3 +45,20 @@ $ MYSQL_VOLUME=./data/ docker-compose -f docker-compose.mysql-volume.yml up --bu
 This configuration will store all MySQL data files to whatever local path you've specified in the `MYSQL_VOLUME` environment variable, in this example `./data/`.
 
 This approach does a little bit of trickery to make sure that local volume files are created as the right user/group; see the custom `build/Dockerfile-localuser` and related files for more details. This approach doesn't seem to work well with Docker Machine on Mac due to the intermediate layer between the local system and the Docker container.
+
+## Getting help
+
+Use the [issue tracker](https://github.com/cfpb/cfgov-mysql-to-postgres/issues) to follow the
+development conversation.
+If you find a bug not listed in the issue tracker,
+please [file a bug report](https://github.com/cfpb/cfgov-mysql-to-postgres/issues/new).
+
+## Getting involved
+
+We welcome your feedback and contributions.
+See the [contribution guidelines](CONTRIBUTING.md) for more details.
+
+## Open source licensing info
+1. [TERMS](TERMS.md)
+2. [LICENSE](LICENSE)
+3. [CFPB Source Code Policy](https://github.com/cfpb/source-code-policy/)
