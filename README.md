@@ -4,7 +4,7 @@ Migrating the [consumerfinance.gov](https://www.consumerfinance.gov) website fro
 
 ## How to use this repository
 
-This repository consists of a [Docker Compose](https://docs.docker.com/compose/) setup that runs the [pgloader](https://pgloader.io/) tool to convert data from a MySQL 5.1 dump file to PostgreSQL 9.6 dump file.
+This repository consists of a [Docker Compose](https://docs.docker.com/compose/) setup that runs the [pgloader](https://pgloader.io/) tool to convert data from a MySQL 5.1 dump file to PostgreSQL 10.3 dump file.
 
 If using docker-machine, create a Docker machine with suitable memory:
 
