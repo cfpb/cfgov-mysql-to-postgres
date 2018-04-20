@@ -30,8 +30,8 @@ To load the dumped data back into a local Postgres:
 ```sh
 $ dropdb cfgov
 $ createdb cfgov
-$ createuser cfgov
-$ gunzip < postgres.sql.gz | psql cfgov
+$ createuser cfpb
+$ gunzip < postgres.sql.gz | psql postgres://cfpb@localhost/cfgov
 ```
 
 ### Using a local MySQL volume

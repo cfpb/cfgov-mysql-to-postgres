@@ -6,10 +6,10 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: cfgov
-      MYSQL_DATABASE: cfgov
-      MYSQL_USER: cfgov
-      MYSQL_PASSWORD: cfgov
+      MYSQL_ROOT_PASSWORD: cfpb
+      MYSQL_DATABASE: cfpb
+      MYSQL_USER: cfpb
+      MYSQL_PASSWORD: cfpb
     volumes:
       - ./:/host:ro
   postgres:
@@ -17,9 +17,9 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_DB: cfgov
-      POSTGRES_USER: cfgov
-      POSTGRES_PASSWORD: cfgov
+      POSTGRES_DB: cfpb
+      POSTGRES_USER: cfpb
+      POSTGRES_PASSWORD: cfpb
     volumes:
       - ./:/host
   pgloader:
