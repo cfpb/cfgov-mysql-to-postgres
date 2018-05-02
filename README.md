@@ -28,11 +28,12 @@ $ ./convert.sh
 To load the dumped data back into a local Postgres:
 
 ```sh
-$ dropdb cfgov
-$ createdb cfgov
-$ createuser cfpb
+$ dropdb --if-exists cfgov && dropuser --if-exists cfpb
+$ createuser cfpb && createdb -O cfpb cfgov
 $ gunzip < postgres.sql.gz | psql postgres://cfpb@localhost/cfgov
 ```
+
+The generated Postgres dump will include a `CREATE SCHEMA cfpb` command and so the database user must have permission to execute this command. If the database is created with `createdb -O cfpb`, the `cfpb` user will be an owner and will have sufficient permission to do so.
 
 ### Using a local MySQL volume
 
